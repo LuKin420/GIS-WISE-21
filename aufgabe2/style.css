@@ -1,0 +1,274 @@
+/* ---------------------------------
+body
+--------------------------------- */
+html{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+body{
+    background-image: url(Medien/back.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: sans-serif;
+    width: 900px;
+    word-wrap: break-word !important;
+    line-height: 32px;
+}
+
+header{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+
+.row::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+
+.headline{
+    background:grey;
+    color:white;
+    border-radius: 5px;
+    padding: 10px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+video{
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+
+h1{
+    letter-spacing: 0.25em;
+    text-shadow: 0.1em 0.1em darkcyan;
+    border: 15px;
+    padding: 20px;
+    margin: 20px;
+    font-family: 'Mochiy Pop P One', sans-serif;
+
+}
+
+/* ---------------------------------
+Index
+--------------------------------- */
+
+#homepic{
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  #homepic:hover{
+    transform: scale(1.15);
+    opacity: 1;
+  }
+
+/* ---------------------------------
+Eventsite
+--------------------------------- */
+#animated-text{
+    animation-name: color;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    text-align: center;
+  }
+  
+  @keyframes color{
+    0% {
+      color: lightskyblue;
+    }
+    50% {
+      color: blue;
+    }
+    100% {
+      color: darkblue;
+    }
+  }
+
+/* ---------------------------------
+navigation
+--------------------------------- */
+.toggle,
+[id^=drop] {
+    display: none;
+}
+
+nav:after {
+    content:"";
+    display:table;
+    clear:both;
+}
+
+nav ul {
+    float: right;
+    padding:0;
+    margin:0;
+    list-style: none;
+    position: relative;
+    }
+
+nav ul li {
+    margin: 0px;
+    float: left;
+    background-color:black;
+    border-radius: 2px;
+    }
+
+
+nav a {
+    display:block;
+    padding:14px 20px;
+    color:#FFF;
+    font-size:17px;
+    text-decoration:none;
+}
+
+
+nav a:hover { 
+    background-color:lightgray; 
+}
+
+
+nav ul li:hover > ul {
+    display:inherit;
+}
+
+#start #nav1,
+#eventsite #nav2 {
+    color: darkcyan;
+    font-weight: 900;
+  }
+
+  /* ---------------------------------
+responsive design - navbar
+--------------------------------- */
+@media all and (max-width : 768px) {
+
+    nav {
+        margin: 0;
+        font-family: sans-serif;
+    }
+
+    .toggle + a,
+    .menu {
+        display: none;
+    }
+
+    .toggle {
+        display: block;
+        background-color: black;
+        padding:14px 20px;
+        color:#FFF;
+        font-size:17px;
+        text-decoration:none;
+        border:none;
+    }
+
+    .toggle:hover {
+        background-color: lightgray;
+    }
+
+
+    [id^=drop]:checked + ul {
+        display: block;
+    }
+
+
+    nav ul li {
+        display: block;
+        width: 100%;
+        } 
+
+}
+
+@media all and (max-width : 330px) {
+
+    nav ul li {
+        display:block;
+        width: 94%;
+    }
+
+}
+
+
+
+/* ---------------------------------
+Footer
+--------------------------------- */
+
+
+footer {
+    background: black;
+    padding: 10px;
+    margin-top:20px;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+}
+
+
+/* ---------------------------------
+responsive design
+--------------------------------- */
+* {
+    box-sizing: border-box;
+  }
+  
+  /* for mobile phones: */
+  [class="col-"]{
+    width: 100%;
+  }
+  
+  @media only screen and (min-width:600px) {
+    /* for tablets: */
+    .col-s-1 {width: 8.33%;}
+    .col-s-2 {width: 16.66%;}
+    .col-s-3 {width: 25%;}
+    .col-s-4 {width: 33.33%;}
+    .col-s-5 {width: 41.66%;}
+    .col-s-6 {width: 50%;}
+    .col-s-7 {width: 58.33%;}
+    .col-s-8 {width: 66.66%;}
+    .col-s-9 {width: 75%;}
+    .col-s-10 {width: 83.33%;}
+    .col-s-11 {width: 91.66%;}
+    .col-s-12 {width: 100%;}
+  }
+  
+  @media only screen and (min-width: 768px) {
+    /* for desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+  }
+
+/* ---------------------------------
+imports
+--------------------------------- */
