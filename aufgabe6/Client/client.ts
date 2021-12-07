@@ -1,7 +1,7 @@
 namespace Client {
     console.log("Client läuft");
     const url: string = "http://127.0.0.1:3000/";
-    const path: string = "/greetings";
+    const path: string = "/convertDate";
 
     const myForm: HTMLFormElement = <HTMLFormElement>document.getElementById("myform");
     const sendButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("send-button");
@@ -22,4 +22,6 @@ namespace Client {
         let responseText: string = await response.text();
         console.log(responseText);
     }
+
+
 }

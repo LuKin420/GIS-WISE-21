@@ -16,12 +16,16 @@ namespace Server {
 
             switch (url.pathname) { //welcher path will erreicht werden?
                 case "/":
-                    response.write("Hello World");
+                    response.write("Server erreichbar");
                     break;
-                case "/greetings":
-                    let name: string = url.searchParams.get("name");
-                    console.log(name);
-                    response.write("Hallo " + name + " , schoen dich zu sehen!");
+                case "/convertDate":
+                    let day: string = url.searchParams.get("day");
+                    let month: string = url.searchParams.get("month");
+                    let year: string = url.searchParams.get("year");
+                    console.log(day);
+                    console.log(month);
+                    console.log(year);
+                    response.write("Day: " + day + ", Month: " + month + ", Year: " + year);
                     break;
                 default:
                     response.statusCode = 404;
