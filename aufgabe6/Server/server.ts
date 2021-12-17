@@ -19,10 +19,7 @@ const server: http.Server = http.createServer( //Server definiert
                 response.write("Server erreichbar");
                 break;
             case "/convertDate":
-                //response.write(url.searchParams.get("name") || "Datum eingeben");
-                const myDate: Date = new Date();
-                console.log(myDate);
-                response.write("Day: " + myDate + ", Month: " +  + ", Year: " + myDate);
+                response.write(url.searchParams.get("name") || "Datum eingeben");
                 break;
             default:
                 response.statusCode = 404;

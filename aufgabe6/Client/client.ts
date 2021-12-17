@@ -5,7 +5,7 @@ namespace Client {
 
     const myForm: HTMLFormElement = <HTMLFormElement>document.getElementById("myform");
     const sendButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("send-button");
-    //const answer: HTMLElement = <HTMLElement>document.getElementById("answer");
+    const answer: HTMLElement = <HTMLElement>document.getElementById("answer");
 
     sendButton.addEventListener("click", function(evt: Event) {
         evt.preventDefault();
@@ -13,11 +13,8 @@ namespace Client {
 
     });
 
-  
-    console.log(myForm, sendButton);
-
     async function sendForm(): Promise<void> {
-        let formData: FormData = new FormData(myForm); //formData übergeben 
+        let formData: FormData = new FormData(myForm); //formData übergeben
         let query: URLSearchParams = new URLSearchParams(<any>formData); //query - richtig formatieren beim formData
         let urlWithQuery: string = url + path + "?" + query.toString();
         
@@ -25,8 +22,9 @@ namespace Client {
         
         let responseText: string = await response.text();
         
-        
-        console.log(responseText);
+        const paragraph: HTMLElement = document.createElement("p");
+        paragraph.innerText = responseText;
+        answer.appendChild(paragraph);
 
         
     }
