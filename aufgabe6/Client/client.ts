@@ -17,16 +17,16 @@ namespace Client {
         let formData: FormData = new FormData(myForm); //formData übergeben
         let query: URLSearchParams = new URLSearchParams(<any>formData); //query - richtig formatieren beim formData
         let urlWithQuery: string = url + path + "?" + query.toString();
-        
-        let response: Response = await fetch(urlWithQuery);
-        
-        let responseText: string = await response.text();
-        
-        const paragraph: HTMLElement = document.createElement("p");
-        paragraph.innerText = responseText;
-        answer.appendChild(paragraph);
 
-        
+        let response: Response = await fetch(urlWithQuery);
+        let responseText: string = await response.text();
+
+        let edition: HTMLElement = document.createElement("p");
+        edition.textContent = responseText;
+        answer.appendChild(edition);
+        console.log(responseText);
+
+
     }
  
 

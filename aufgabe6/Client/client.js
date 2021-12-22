@@ -17,9 +17,10 @@ var Client;
         let urlWithQuery = url + path + "?" + query.toString();
         let response = await fetch(urlWithQuery);
         let responseText = await response.text();
-        const paragraph = document.createElement("p");
-        paragraph.innerText = responseText;
-        answer.appendChild(paragraph);
+        let edition = document.createElement("p");
+        edition.textContent = responseText;
+        answer.appendChild(edition);
+        console.log(responseText);
     }
 })(Client || (Client = {}));
 //# sourceMappingURL=client.js.map
