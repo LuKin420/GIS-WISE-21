@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <title>Verwaltungsseite</title>
+        <meta charset="UTF-8">
+        <meta name="autor" content="Luis Kindler" />
+        <meta name="beschreibung" content="GIS_Prüfungsaufgabe" />
+        <meta name="schlagwoerter" content="html, GIS_Prüfungsaufgabe, basic" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+        <script src="script.js" defer></script>
+    </head>
+    <body id="start">
+        <header>
+            <h1></h1>
+        </header>
+        <div class="row">
+
+            <nav>
+                <label for="drop" class="toggle">Menu</label>
+                <input type="checkbox" id="drop" />
+                    <ul class="menu">
+                        <li><a href="index.html" id="nav1">Übersicht</a></li>
+                        <li><a href="Detailansicht.html" id="nav2">Detailansicht</a></li>
+                        <li><a href="Verwaltungsseite.html" id="nav3">Verwaltungsseite</a></li>
+                    </ul>
+            </nav>
+        <main>
+            <div class="col-6 col-s-6">
+                <h4 class="headline">Add events</h2>
+            </div>
+
+            <div class="col-12 col-s-12">
+                <form id="form">
+                    <div class="field">
+                        <label>Interpret</label>
+                        <input id="interpretPut" type="text" name="interpret" placeholder="Interpret"/>
+                    </div>
+                    <div class="field">
+                        <label>Price</label>
+                        <input id="pricePut" type="number" name="price" placeholder="Price"/>
+                    </div>
+                    <div class="field">
+                        <label>Date and Time</label>
+                        <input id="dateTimePut" type="datetime-local" name="datetime" placeholder="Price"/>
+                    </div><br>
+                    <button id="enterButton" class="eButton" type="submit">Enter Event</button>
+                </form>
+
+
+                <div class="col-6 col-s-6">
+                    <h4 class="headline">Events Table</h2>
+                </div>
+
+                <div class="col-12 col-s-12">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Interpret</th>
+                                <th>Price</th>
+                                <th>Date and Time</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id= "table-body">
+    
+                        </tbody>
+                    </table>
+                </div>
+            </div>         
+
+        </main>
+        </div>
+        <footer>
+            © 2022, Luis Kindler | Deutschland | Impressum 
+        </footer>
+        
+    </body>
+</html>
