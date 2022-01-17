@@ -25,9 +25,7 @@ var Server_8;
                 await mongoClient.connect();
                 switch (request.method) {
                     case "GET":
-                        await dbFind("interpret", "price", {
-                            eventNr: Number(url.searchParams.get("eventNr")),
-                        }, response);
+                        await dbFind("interpret", "price", {}, response);
                         break;
                     case "POST":
                         let jsonString = "";

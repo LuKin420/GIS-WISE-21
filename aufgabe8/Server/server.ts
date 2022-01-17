@@ -37,10 +37,9 @@ namespace Server_8 {
                             await dbFind(
                                 "interpret",
                                 "price",
-                                {
-                                    eventNr: Number(url.searchParams.get("eventNr")),
-                                },
+                                {},
                                 response
+                                
                             );
                             break;
                         case "POST":
