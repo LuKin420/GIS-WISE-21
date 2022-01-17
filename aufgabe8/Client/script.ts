@@ -6,6 +6,13 @@ namespace a_8 {
     const priceInput: HTMLInputElement = document.querySelector("#pricePut");
     const dateTimeInput: HTMLInputElement = document.querySelector("#dateTimePut");
     
+    async function requestEvents(): Promise<void> {
+        let response: Response = await fetch("http://localhost:3000/events", {mode: "no-cors"});
+        let text: string = await response.text();
+        console.log(text);
+      }
+    
+    requestEvents();
     
     function formSubmit(event: Event): void {
         event.preventDefault();
@@ -28,5 +35,31 @@ namespace a_8 {
     
     form.addEventListener("submit", formSubmit);
     
-    
+    interface CustomEvent {
+        inpterpret: String;
+        price: String;
+        dateTime: String;
+    }
+
+    let eventForm: HTMLFormElement = <HTMLFormElement>(
+        document.getElementById("form")
+    );
+
+    eventForm.addEventListener("submit", onSubmitEventForm);
+
+    async function onSubmitEventForm(event: Event) {
+        event.preventDefault();
+        let formData: FormData = new FormData(<HTMLFormElement>event.currentTarget);
+        let events: CustomEvent = {
+            interpret: formData.get("interpret"),
+            price: formData.get("price"),
+            dateTime: formData.get("datetime")
+        };
+        console.log(events);
+        await fetch("http://localhost:3000/events", {
+            method: "POST",
+            body: JSON.stringify(events),
+            mode: "no-cors"
+        });
+    }
 }

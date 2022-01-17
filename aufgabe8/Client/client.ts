@@ -23,7 +23,7 @@ namespace Client_8 {
         console.log(events);
         await fetch("http://localhost:3000/events", {
             method: "post",
-            body: JSON.stringify(events),
+            body: JSON.stringify(events)
         });
     }
 

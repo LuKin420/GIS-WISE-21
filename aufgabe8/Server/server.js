@@ -21,7 +21,7 @@ var Server_8;
         response.statusCode = 200;
         let url = new URL(request.url || "", `http://${request.headers.host}`);
         switch (url.pathname) {
-            case "/concertEvents": {
+            case "/events": {
                 await mongoClient.connect();
                 switch (request.method) {
                     case "GET":
@@ -32,7 +32,7 @@ var Server_8;
                     case "POST":
                         let jsonString = "";
                         request.on("data", data => {
-                            jsonString += data;
+                            jsonString += data.toString();
                         });
                         request.on("end", async () => {
                             mongoClient

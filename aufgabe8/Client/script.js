@@ -6,6 +6,12 @@ var a_8;
     const interpretInput = document.querySelector("#interpretPut");
     const priceInput = document.querySelector("#pricePut");
     const dateTimeInput = document.querySelector("#dateTimePut");
+    async function requestEvents() {
+        let response = await fetch("http://localhost:3000/events", { mode: "no-cors" });
+        let text = await response.text();
+        console.log(text);
+    }
+    requestEvents();
     function formSubmit(event) {
         event.preventDefault();
         const element = document.createElement("tr");
@@ -22,5 +28,22 @@ var a_8;
         display.appendChild(element);
     }
     form.addEventListener("submit", formSubmit);
+    let eventForm = (document.getElementById("form"));
+    eventForm.addEventListener("submit", onSubmitEventForm);
+    async function onSubmitEventForm(event) {
+        event.preventDefault();
+        let formData = new FormData(event.currentTarget);
+        let events = {
+            interpret: formData.get("interpret"),
+            price: formData.get("price"),
+            dateTime: formData.get("datetime")
+        };
+        console.log(events);
+        await fetch("http://localhost:3000/events", {
+            method: "POST",
+            body: JSON.stringify(events),
+            mode: "no-cors"
+        });
+    }
 })(a_8 || (a_8 = {}));
 //# sourceMappingURL=script.js.map

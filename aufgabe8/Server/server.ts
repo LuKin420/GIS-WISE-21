@@ -7,7 +7,7 @@ namespace Server_8 {
     const mongoUrl: string = "mongodb://localhost:27017";
     let mongoClient: mongo.MongoClient = new mongo.MongoClient(mongoUrl);
 
-    async function dbFind(
+    async function dbFind (
         db: string,
         collection: string,
         requestObject: any,
@@ -30,7 +30,7 @@ namespace Server_8 {
 
             let url: URL = new URL(request.url || "", `http://${request.headers.host}`);
             switch (url.pathname) {
-                case "/concertEvents": {
+                case "/events": {
                     await mongoClient.connect();
                     switch (request.method) {
                         case "GET":
@@ -46,7 +46,7 @@ namespace Server_8 {
                         case "POST":
                             let jsonString = "";
                             request.on("data", data => {
-                                jsonString += data;
+                                jsonString += data.toString();
                             });
                             request.on("end", async () => {
                                 mongoClient
