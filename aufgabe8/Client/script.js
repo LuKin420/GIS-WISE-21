@@ -7,9 +7,23 @@ var a_8;
     const priceInput = document.querySelector("#pricePut");
     const dateTimeInput = document.querySelector("#dateTimePut");
     async function requestEvents() {
-        let response = await fetch("http://localhost:3000/events", { mode: "no-cors" });
-        let text = await response.text();
-        console.log(text);
+        let response = await fetch("http://localhost:3000/events");
+        let events = await response.json();
+        console.log(events);
+        for (let index = 0; index < events.length; index++) {
+            const element = document.createElement("tr");
+            element.innerHTML = `<td>${events[index].interpret}</td><td>${events[index].price}€</td><td>${events[index].dateTime}</td>`;
+            const tdElement = document.createElement("td");
+            const button = document.createElement("button");
+            button.classList.add("delete-button");
+            button.innerHTML = "delete";
+            button.addEventListener("click", function () {
+                display.removeChild(element);
+            });
+            tdElement.appendChild(button);
+            element.appendChild(tdElement);
+            display.appendChild(element);
+        }
     }
     requestEvents();
     function formSubmit(event) {

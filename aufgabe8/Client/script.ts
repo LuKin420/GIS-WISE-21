@@ -7,9 +7,26 @@ namespace a_8 {
     const dateTimeInput: HTMLInputElement = document.querySelector("#dateTimePut");
     
     async function requestEvents(): Promise<void> {
-        let response: Response = await fetch("http://localhost:3000/events", {mode: "no-cors"});
-        let text: string = await response.text();
-        console.log(text);
+        let response: Response = await fetch("http://localhost:3000/events");
+        let events: Array<CustomEvent> = await response.json();
+        console.log(events);
+        
+        for (let index: number = 0; index < events.length; index++) {
+            const element: HTMLElement = document.createElement("tr");
+            element.innerHTML = `<td>${events[index].interpret}</td><td>${events[index].price}€</td><td>${events[index].dateTime}</td>`;
+            const tdElement: HTMLElement = document.createElement("td");
+            const button: HTMLButtonElement = document.createElement("button");
+            button.classList.add("delete-button");
+            button.innerHTML = "delete";
+            button.addEventListener("click", function(): void {
+                display.removeChild(element);
+            });
+        
+            tdElement.appendChild(button);
+            element.appendChild(tdElement);
+            display.appendChild(element);
+
+        }
       }
     
     requestEvents();
@@ -36,7 +53,7 @@ namespace a_8 {
     form.addEventListener("submit", formSubmit);
     
     interface CustomEvent {
-        inpterpret: String;
+        interpret: String;
         price: String;
         dateTime: String;
     }
